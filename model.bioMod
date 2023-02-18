@@ -1,0 +1,19 @@
+import biorbd
+
+# Define the properties of the segments and joints
+segment_lengths = [0.5, 0.3, 0.2]
+joint_type = [biorbd.JointType.PLANE, biorbd.JointType.PLANE]
+axis = [[1, 0, 0], [0, 1, 0]]
+parent_id = [-1, 0, 1]
+joint_id = [0, 1]
+segment_names = ["Pelvis", "Femur", "Tibia"]
+joints_names = ["Hip", "Knee"]
+
+# Create the musculoskeletal model
+model = biorbd.Model()
+for i in range(len(segment_lengths)):
+    model.add_segment(biorbd.Segment(segment_names[i], biorbd.Mesh(), segment_lengths[i], parent_id[i]))
+    if i > 0:
+        model.add_joint(joint_id[i-1], joints_names[i-1], joint_type[i-1], parent_id[i])
+        model.append_translation(joint_id[i-1], axis[i-1])
+model.finalize_topology()

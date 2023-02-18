@@ -17,7 +17,7 @@ The project involves the following steps:
 8. Visualizing the results
 
 ## Requirements
-
+- Anaconda or Miniconda
 - Python 3.7 or later
 - Pyomeca
 - Biorbd
@@ -28,12 +28,13 @@ The project involves the following steps:
 
 1. Clone the repository:
 
-`git clone https://github.com/splenwilz/repo.git`
+`git clone https://github.com/splenwilz/golf_swing_analysis.git`
 
 
 2. Install the required dependencies:
 
-pip install -r requirements.txt
+`conda install -c conda-forge pyomeca`
+`conda install -c conda-forge biorbd`
 
 3. Run the analysis:
 
